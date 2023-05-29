@@ -1,0 +1,17 @@
+<%- include('partials/header') %>
+
+<h2 class="h2-types">Cliquez sur un type pour voir tous les Pokémon de ce type</h2>
+
+<div class="container-type">
+    <ul>
+        <% for(const type of typeList) { %>
+            <li>
+                <a href="/type/<%= type.name %>">
+                    <p style="background-color: #<%= type.color %>;"><%= type.name %></p>
+                </a>
+            </li>
+        <% } %>
+    </ul>
+</div>
+
+<%- include('partials/footer') %>

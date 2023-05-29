@@ -1,0 +1,77 @@
+<%- include('partials/header') %>
+
+<h2 class="h2-details">Détails de <%= pokemon.nom %></h2>
+
+<div class="container-details">
+    <div class="container-left">
+        <img src="/img/<%= pokemon.numero %>.png" alt="pokemon <%= pokemon.nom %>">
+    </div>
+    <div class="container-right">
+        <div class="container-top">
+            <h3>#<%= pokemon.numero %> <%= pokemon.nom %></h3>
+            <div class="type-pokemon">
+                <% for(const type of typePokemon) { %>
+                    <a href="/type/<%= type.name %>" style="background-color:#<%= type.color %>;"><%= type.name %></a>
+                <% } %>
+            </div>
+            <h4>Statistiques</h4>
+        </div>
+        <div class="stats-pokemon">
+            <div class="stats-pokemon__left">
+                <ul>
+                    <li>
+                        <p>PV</p>
+                        <span><%= pokemon.pv %></span>
+                    </li>
+                    <li>
+                        <p>Attaque</p>
+                        <span><%= pokemon.attaque %></span>
+                    </li>
+                    <li>
+                        <p>Défense</p>
+                        <span><%= pokemon.defense %></span>
+                    </li>
+                    <li>
+                        <p>Attaque Spé.</p>
+                        <span><%= pokemon.attaque_spe %></span>
+                    </li>
+                    <li>
+                        <p>Défense Spé.</p>
+                        <span><%= pokemon.defense_spe %></span>
+                    </li>
+                    <li>
+                        <p>Vitesse</p>
+                        <span><%= pokemon.vitesse %></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="stats-pokemon__right">
+                <ul>
+                    <li>
+                        <div class="progress-bar bar_pv"></div>
+                    </li>
+                    <li>
+                        <div class="progress-bar bar_offensive"></div>
+                    </li>
+                    <li>
+                        <div class="progress-bar bar_defense"></div>
+                    </li>
+                    <li>
+                        <div class="progress-bar bar_offensive-spe"></div>
+                    </li>
+                    <li>
+                        <div class="progress-bar bar_defense-spe"></div>
+                    </li>
+                    <li>
+                        <div class="progress-bar bar_speed"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<p class="return-list"><a href="/">Revenir à la liste</a></p>
+
+<script src="/js/script.js"></script>
+
+<%- include('partials/footer') %>

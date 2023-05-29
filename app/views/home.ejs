@@ -1,0 +1,24 @@
+<%- include('partials/header') %>
+
+<% if (locals.valueSearchBar) { %>
+    <h2 class="pokemon-found">Pokemon trouvé avec la recherche : <strong><%= valueSearchBar %></strong></h2>
+<% } %>
+
+<div class="container-pokemon">
+    <% if(pokemonList[0] === undefined) { %>
+        <p class="no-result">Aucun résultat...</p> 
+    <% } else { %>
+        <ul>
+            <% for(const pokemon of pokemonList) { %>
+                <li>
+                    <a href="/pokemon/<%= pokemon.nom %>">
+                        <img src="/img/<%= pokemon.numero %>.png" alt="pokemon <%= pokemon.nom %>">
+                        <h3>#<%= pokemon.numero %> <%= pokemon.nom %></h3>
+                    </a>
+                </li>
+            <% } %>
+        </ul>
+    <% } %>
+</div>
+
+<%- include('partials/footer') %>
